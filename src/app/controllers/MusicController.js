@@ -123,6 +123,18 @@ export async function getSearchAlbum(query) {
     }
 }
 
+export async function GetSearchResultsGlobal(query) {
+    try {
+        const response = await fetch(
+            `${BASE_URL}/api/search?query=${query}&limit=50`
+        );
+        const data = await response.json();
+        return data?.data;
+    } catch (error) {
+        console.log(error);
+    }
+}
+
 export async function getRealAlbum(id) {
     try {
         const response = await fetch(
@@ -134,3 +146,4 @@ export async function getRealAlbum(id) {
         console.log(error);
     }
 }
+
